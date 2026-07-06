@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "url-audio-downloader"
+version = "1.0.0"
+description = "Приложение автоматизации загрузки аудио с YouTube. Есть возможность скачивать аудио с одной URL-ссылки или указать список всех URL-ссылок в текстовый файл и скачать аудио из этого списка."
+readme = "README.md"
+authors = [{ name = "SevenSevenNine", email = "danila.umbetaliev.05@mail.ru" }]
+license = { text = "MIT" }
+requires-python = ">=3.14"
+dependencies = ["console-interface-lib"]
+
+[tool.setuptools.package-dir]
+"" = "src"

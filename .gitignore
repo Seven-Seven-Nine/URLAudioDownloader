@@ -1,0 +1,5 @@
+.virtual_environment
+__pycache__/
+build
+dist
+URLAudioDownloader.spec
