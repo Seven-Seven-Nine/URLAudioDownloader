@@ -7,6 +7,7 @@ from src.url_audio_downloader.AudioDownloader import AudioDownloader
 def initializing_arguments():
     parser: ArgumentParser = ArgumentParser()
 
+    parser.add_argument("--version", action="version", version="%(prog)s 1.0.0", help="Показать версию приложения.")
     parser.add_argument("--debug", action="store_true", help="Включить режим отладки.")
     parser.add_argument("--url", default="none", help="Ссылка на видео для скачивания аудио.")
     parser.add_argument("--file", default="none", help="Путь к файлу с ссылками.")
@@ -17,9 +18,10 @@ def initializing_arguments():
     return parser.parse_args()
 
 def run() -> None:
-    ConsoleInterface.display_message("Запуск URL Audio Downloader")
     args = initializing_arguments()
 
+    ConsoleInterface.display_message("Запуск URL Audio Downloader")
+    
     audioDownloader: AudioDownloader = AudioDownloader()
 
     if args.debug:
