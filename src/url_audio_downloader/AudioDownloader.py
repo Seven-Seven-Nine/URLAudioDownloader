@@ -36,6 +36,7 @@ class AudioDownloader:
         """
         ConsoleInterface.display_message(f"Результат проверки наличия \"yt-dlp\": {self.__checking_yt_dlp}.", "debug")
         ConsoleInterface.display_message(f"Результат проверки наличия \"ffmpeg\": {self.__checking_ffmpeg}.", "debug")
+        ConsoleInterface.display_message(f"Результат проверки наличия \"deno\": {self.__checking_deno}.", "debug")
 
         if not (self.__checking_yt_dlp and self.__checking_ffmpeg and self.__checking_deno):
             ConsoleInterface.display_message("Для функционирования нет необходимых зависимостей, проверь установку \"yt-dlp\", \"ffmpeg\" и \"deno\".", "error")
