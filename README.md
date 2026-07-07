@@ -29,11 +29,11 @@ https://www.youtube.com/watch?v=...
 https://www.youtube.com/watch?v=...
 https://www.youtube.com/watch?v=...
 ```
-- Через запускаемый файл выполни команду: `./URLAudioDownloader --file="/home/user/links.txt" --output="/home/user/download"`.
+- Через запускаемый файл выполни команду: `./URLAudioDownloader --file="/home/user/links.txt" --output="/home/user/download" --mp3`.
 
 2) Напрямую через URL-адрес видео:
 
-- Запусти команду: `./URLAudioDownloader --url="https://www.youtube.com/watch?v=..." --output="/home/user/download"`.
+- Запусти команду: `./URLAudioDownloader --url="https://www.youtube.com/watch?v=..." --output="/home/user/download" --mp3`.
 
 ## Доступные аргументы приложения
 
@@ -43,3 +43,4 @@ https://www.youtube.com/watch?v=...
 - `--output="путь_к_папке_установки"` — указывается путь к месту установки.
 - `--playlist` — добавляет возможность скачивать плейлист, который может быть указан в ссылке.
 - `--cookies=имя_браузера` — указывает откуда yt-dlp будет брать cookies, нужно, чтобы YouTube не требовал теста на бота или если он блокирует подозрительный трафик.
+- `mp3` — перекодировать скаченные файлы в mp3 формат.

@@ -25,7 +25,7 @@ class AudioDownloader:
         """
         return shutil.which(name) is not None
 
-    def start_download_audio(self, urls: list[str], playlist: bool, path_output: str, cookies: str) -> None:
+    def start_download_audio(self, urls: list[str], playlist: bool, path_output: str, cookies: str, mp3: bool) -> None:
         """
         Метод скачивания аудио с ссылок.
 
@@ -42,8 +42,8 @@ class AudioDownloader:
             ConsoleInterface.display_message("Для функционирования нет необходимых зависимостей, проверь установку \"yt-dlp\", \"ffmpeg\" и \"deno\".", "error")
             return
         
-        MAX_ATTEMPTS: int = 6 # Количество повторений
-        RETRY_DELAY: int = 5 # Секунды, через которое начнётся попытка скачивания
+        MAX_ATTEMPTS: int = 5 # Количество повторений
+        RETRY_DELAY: int = 3 # Секунды, через которое начнётся попытка скачивания
 
         for url in urls:
             attempt: int = 0
@@ -56,12 +56,17 @@ class AudioDownloader:
                 args: list[str] = [
                     "yt-dlp",
                     "-f", "bestaudio",
-                    "--extract-audio",
-                    "--audio-format", "mp3",
-                    "--audio-quality", "0",
                     "--sleep-interval", "5", "--max-sleep-interval", "10",
-                    "--embed-thumbnail", "--add-metadata",
                 ]
+
+                if mp3 == True:
+                    args.append("--extract-audio")
+                    args.append("--audio-format")
+                    args.append("mp3")
+                    args.append("--audio-quality")
+                    args.append("0")
+                    args.append("--embed-thumbnail")
+                    args.append("--add-metadata")
 
                 if path_output != "none":
                     args.append("-P")
