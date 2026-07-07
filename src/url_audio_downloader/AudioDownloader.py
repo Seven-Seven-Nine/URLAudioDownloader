@@ -10,6 +10,7 @@ class AudioDownloader:
     def __init__(self) -> None:
         self.__checking_yt_dlp: bool = AudioDownloader.__check_executable("yt-dlp")
         self.__checking_ffmpeg: bool = AudioDownloader.__check_executable("ffmpeg")
+        self.__checking_deno: bool = AudioDownloader.__check_executable("deno")
 
     @staticmethod
     def __check_executable(name: str) -> bool:
@@ -36,8 +37,8 @@ class AudioDownloader:
         ConsoleInterface.display_message(f"Результат проверки наличия \"yt-dlp\": {self.__checking_yt_dlp}.", "debug")
         ConsoleInterface.display_message(f"Результат проверки наличия \"ffmpeg\": {self.__checking_ffmpeg}.", "debug")
 
-        if not (self.__checking_yt_dlp and self.__checking_ffmpeg):
-            ConsoleInterface.display_message("Для функционирования нет необходимых зависимостей, проверь установку \"yt-dlp\" и \"ffmpeg\".", "error")
+        if not (self.__checking_yt_dlp and self.__checking_ffmpeg and self.__checking_deno):
+            ConsoleInterface.display_message("Для функционирования нет необходимых зависимостей, проверь установку \"yt-dlp\", \"ffmpeg\" и \"deno\".", "error")
             return
         
         MAX_ATTEMPTS: int = 6 # Количество повторений
