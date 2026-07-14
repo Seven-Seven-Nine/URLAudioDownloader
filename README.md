@@ -1,21 +1,10 @@
 # URL Audio Downloader
 
-Консольное приложение для автоматизации скачивания аудио с YouTube.
-
-## Системные зависимости
-
-Для функционирования приложения требуются установленные yt-dlp и ffmpeg в PATH системы.
-Для корректной работы yt-dlp требуется наличие Deno.
-
-### Установка зависимостей
-
-- *Deno*: `npm i -g deno`.
-- *yt-dlp*: установка через локальный пакетный менеджер. Более подробно на официальной странице GitHub — *https://github.com/yt-dlp/yt-dlp*.
-- *ffmpeg*: установка через локальный пакетный менеджер. Или воспользоваться официальным веб-сайтом — *https://ffmpeg.org/download.html*.
+Консольное приложение для простой загрузки аудио с YouTube. В исполняемый файл включены все необходимые зависимости: **deno**, **ffmpeg**, **yt-dlp**.
 
 ## Пример работы приложения
 
-P.S. нужно указывать абсолютные (полные) пути к текстовому файлу и место скачивания аудио файлов.
+*P.S. нужно указывать абсолютные (полные) пути к текстовому файлу и место скачивания аудио файлов.*
 
 1) Через файл со ссылками:
 
@@ -29,22 +18,23 @@ https://www.youtube.com/watch?v=...
 https://www.youtube.com/watch?v=...
 https://www.youtube.com/watch?v=...
 ```
-- Через запускаемый файл выполни команду: `./URLAudioDownloader --file="/home/user/links.txt" --output="/home/user/download" --mp3`.
+- Через запускаемый файл выполни команду: `./URLAudioDownloader --file "полный/путь/к/файлу.txt" --output "полный/путь/к/загрузке/аудио/" --mp3`.
 
 2) Напрямую через URL-адрес видео:
 
-- Запусти команду: `./URLAudioDownloader --url="https://www.youtube.com/watch?v=..." --output="/home/user/download" --mp3`.
+- Запусти команду: `./URLAudioDownloader --url "https://www.youtube.com/watch?v=..." --output "полный/путь/к/загрузке/аудио/"`.
 
 ## Доступные аргументы приложения
 
 - `--debug` — включает режим отладки.
-- `--url="ссылка"` — указывается ссылка на видео для скачивания аудио.
-- `--file="путь_к_файлу"` — указывается путь к текстовому файлу с URL-адресами.
-- `--output="путь_к_папке_установки"` — указывается путь к месту установки.
+- `--url "ссылка"` — указывается ссылка на видео для скачивания аудио.
+- `--file "путь_к_файлу"` — указывается путь к текстовому файлу с URL-адресами.
+- `--output "путь_к_папке_установки"` — указывается путь к месту установки.
 - `--playlist` — добавляет возможность скачивать плейлист, который может быть указан в ссылке.
-- `--cookies=имя_браузера` — указывает откуда yt-dlp будет брать cookies, нужно, чтобы YouTube не требовал теста на бота или если он блокирует подозрительный трафик.
-- `mp3` — перекодировать скаченные файлы в mp3 формат.
+- `--cookies имя_браузера или путь_к_файлу_с_cookies` — указывает откуда yt-dlp будет брать cookies, нужно, чтобы YouTube не требовал теста на бота или если он блокирует подозрительный трафик, а так же для загрузки закрытого плейлиста. Можно указать имя браузера, откуда yt-dlp автоматически возьмёт cookies, но с chromium-браузерами работает плохо из-за усиленной защиты cookies, на firefox работает без проблем. Чтобы использовать cookies с chromium-браузеров можно экспортировать через расширения файл с cookies и указать путь до этого файла, чтобы yt-dlp использовал cookies из этого файла.
 
 ## Сборка
 
-Установить *Pyinstaller* и выполнить команду в корне проекта: `pyinstaller --onefile --name="URLAudioDownloader" run.py`.
+Установить *Pyinstaller* и выполнить команду в корне проекта:
+- *Windows* – `pyinstaller --onefile --name="URLAudioDownloader" --add-binary "X:\путь\к\deno\deno.exe:bin" --add-binary "X:\путь\к\ffmpeg\bin\ffmpeg.exe:bin" --add-binary "X:\путь\к\ffmpeg\bin\ffplay.exe:bin" --add-binary "X:\путь\к\ffmpeg\bin\ffprobe.exe:bin" --icon "X:\путь\к\URLAudioDownloader\src\url_audio_downloader\assets\icon-url-audio-downloader.ico" main.py`.
+- *Linux* –`pyinstaller --onefile --name="URLAudioDownloader" --add-binary "/путь/к/deno:bin" --add-binary "/путь/к/ffmpeg/ffmpeg:bin" --add-binary "/путь/к/ffmpeg/ffplay:bin" --add-binary "/путь/к/ffmpeg/ffprobe:bin" --icon "X:/путь/к/URLAudioDownloader/src/url_audio_downloader/assets/icon-url-audio-downloader.ico" main.py`.
