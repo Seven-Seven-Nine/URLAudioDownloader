@@ -36,5 +36,5 @@ https://www.youtube.com/watch?v=...
 ## Сборка
 
 Установить *Pyinstaller* и выполнить команду в корне проекта:
-- *Windows* – `pyinstaller --onefile --name="URLAudioDownloader" --add-binary "X:\путь\к\deno\deno.exe:bin" --add-binary "X:\путь\к\ffmpeg\bin\ffmpeg.exe:bin" --add-binary "X:\путь\к\ffmpeg\bin\ffplay.exe:bin" --add-binary "X:\путь\к\ffmpeg\bin\ffprobe.exe:bin" --icon "X:\путь\к\URLAudioDownloader\src\url_audio_downloader\assets\icon-url-audio-downloader.ico" main.py`.
-- *Linux* –`pyinstaller --onefile --name="URLAudioDownloader" --add-binary "/путь/к/deno:bin" --add-binary "/путь/к/ffmpeg/ffmpeg:bin" --add-binary "/путь/к/ffmpeg/ffplay:bin" --add-binary "/путь/к/ffmpeg/ffprobe:bin" --icon "X:/путь/к/URLAudioDownloader/src/url_audio_downloader/assets/icon-url-audio-downloader.ico" main.py`.
+- *Windows* – `pyinstaller --onefile --name="URLAudioDownloaderWindows" --add-binary "X:\путь\к\deno\deno.exe:bin" --add-binary "X:\путь\к\ffmpeg\bin\ffmpeg.exe:bin" --add-binary "X:\путь\к\ffmpeg\bin\ffplay.exe:bin" --add-binary "X:\путь\к\ffmpeg\bin\ffprobe.exe:bin" --icon "X:\путь\к\URLAudioDownloader\src\url_audio_downloader\assets\icon-url-audio-downloader.ico" main.py`.
+- *Linux* –`pyinstaller --onefile --name="URLAudioDownloaderLinux" --add-binary "/путь/к/deno:bin" --add-binary "/путь/к/ffmpeg/ffmpeg:bin" --add-binary "/путь/к/ffmpeg/ffplay:bin" --add-binary "/путь/к/ffmpeg/ffprobe:bin" --icon "X:/путь/к/URLAudioDownloader/src/url_audio_downloader/assets/icon-url-audio-downloader.ico" main.py`.

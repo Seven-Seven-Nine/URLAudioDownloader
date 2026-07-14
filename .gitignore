@@ -5,3 +5,4 @@ dist
 URLAudioDownloader.spec
 url_audio_downloader.egg-info
 uv.lock
+URLAudioDownloaderWindows.spec
