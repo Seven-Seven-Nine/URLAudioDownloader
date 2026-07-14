@@ -1,5 +1,7 @@
-.virtual_environment
+.venv
 __pycache__/
 build
 dist
 URLAudioDownloader.spec
+url_audio_downloader.egg-info
+uv.lock

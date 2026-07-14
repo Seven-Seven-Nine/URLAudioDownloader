@@ -1,7 +1,7 @@
 from console_interface_lib import ConsoleInterface
 import sys
 
-class LinkExtractor:
+class UrlExtractor:
     """
     Класс для получения массива ссылок из файла.
     """
@@ -10,8 +10,8 @@ class LinkExtractor:
 
         self.__path_file_with_urls: str = path_file_with_links
 
-        if LinkExtractor.__checking_duplicate_url(self.__path_file_with_urls):
-            self.__array_links: list[str] = self.__parse_file_with_links()
+        if UrlExtractor.__checking_duplicate_url(self.__path_file_with_urls):
+            self.__list_url: list[str] = self.__parse_file_with_links()
         else:
             ConsoleInterface.display_message("Убери повторяющиеся URL из текстового файла для продолжения...", "error")
             sys.exit(1)
@@ -61,5 +61,5 @@ class LinkExtractor:
             ConsoleInterface.display_message(f"Ошибка чтения файла: {error}", "error")
         return links
     
-    def get_array_links(self) -> list[str]:
-        return self.__array_links
+    def get_list_url(self) -> list[str]:
+        return self.__list_url
